@@ -6,6 +6,12 @@
     "module": "es2015",
     "types": []
   },
+  "include": [
+    "../src/app/shared/imdb.service.ts",
+    "../src/main.ts",
+    "../src/polyfills.ts"
+
+  ],
   "exclude": [
     "test.ts",
     "**/*.spec.ts"

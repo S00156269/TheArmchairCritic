@@ -1,3 +1,20 @@
-<p>
-  login works!
-</p>
+<div class="container">
+  <h2>Login</h2>
+  <form #form="ngForm">
+    <div class="form-group">
+      <label for="email" class="col-form-label">Email</label>
+      <input type="text" name="email" [(ngModel)]="email" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="password" class="col-form-label">Password</label>
+      <input type="password" name="password" [(ngModel)]="password" class="form-control">
+    </div>
+    <div *ngIf="success" class="alert alert-danger">
+      Username or password is incorrect.
+    </div>
+    <div class="form-group">
+      <button class="btn btn-primary" (click)="login()">Login</button>
+      <a class="btn btn-link" [routerLink]="['/register']">Register</a>
+    </div>
+  </form>
+</div>

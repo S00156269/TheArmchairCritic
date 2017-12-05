@@ -1,0 +1,65 @@
+#wrapper{
+    height: 1000px;
+    width: 100%;
+}
+
+.panel-heading { 
+    background-color: #2e6da4;
+    height: 60px;
+}
+
+.btn {
+    float: right;
+    margin-right: 10px;
+    height: 40px;
+    width: 100px;
+    text-align: center;
+}
+
+#menuToggle{
+    float: left;
+    background: #830404;
+}
+
+#Sidebar{
+    background: green;
+    width: 200px;
+    height: 940px;
+    position: absolute;
+}
+
+#MainBody{
+    margin-left: 240px;
+}
+
+.SidebarList{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: 25px;
+    margin-top: 60px;
+
+}
+
+.button {
+    background-color: ForestGreen;  
+    color: white;
+
+    padding: 8px 8px 8px 32px;
+    text-decoration:none;
+    font-size: 26px;
+    display: block;
+    transition: 0.3s;
+    margin-bottom: 5px;
+    text-align: center;
+  }
+  
+  .button:focus,
+  .button:hover {
+    background-color: DarkGreen;
+  }
+  
+  #ProfilePic{
+    margin-left: 20px;
+  }

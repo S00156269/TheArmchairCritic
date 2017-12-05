@@ -15,6 +15,9 @@
   ],
   "include": [
     "**/*.spec.ts",
-    "**/*.d.ts"
+    "**/*.d.ts",
+    "../src/app/shared/imdb.service.ts",
+    "../src/main.ts",
+    "../src/polyfills.ts"
   ]
 }

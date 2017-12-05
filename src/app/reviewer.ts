@@ -1,4 +1,4 @@
-class Reviewer {
+export class Reviewer {
     UID: string;
     Name: string;
     Pic: string;

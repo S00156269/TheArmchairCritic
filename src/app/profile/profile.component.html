@@ -1,3 +1,44 @@
-<p>
-  profile works!
-</p>
+
+<!-- TODO: Show profile data, this is the editprofile -->
+<div id = 'wrapper'>
+
+  <h1>Profile</h1>
+  
+  <div id='Pic' class='ProfileInfo'>
+    <p>Upload Profile Pic! </p>
+  </div>
+  
+  <div id='Bio' class='ProfileInfo'>
+      <p>Bio: </p>
+      <textarea id="InputName" name="InputName" cols="50" rows="10"></textarea>
+    </div>
+  
+  <div id='Name' class='ProfileInfo'>
+    <p>Name: </p>
+    <input id='InputName' #UserName>
+  </div>
+  
+  <div id='FavGenre' class='ProfileInfo'>
+    <p>Favourite Genre: </p>
+    <div id='GenreBox'>
+      <input type="checkbox" name="radio">Horror
+      <br>
+      <input type="checkbox" name="radio">Action
+      <br>
+      <input type="checkbox" name="radio">Sci-fi
+    </div>
+  </div>
+  
+  <div id='FavMovies' class='ProfileInfo'>
+    <p>Favourite Movie's: </p>
+    <input id='FavMovie1' class='FavMovie' #UserFav>
+    <br>
+    <input id='FavMovie2' class='FavMovie' #UserFav>
+    <br>
+    <input id='FavMovie3' class='FavMovie' #UserFav>
+  </div>
+  
+  <button type="submit">Save</button>
+  
+  </div>
+  

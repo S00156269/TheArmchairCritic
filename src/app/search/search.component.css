@@ -1,0 +1,13 @@
+.searchBar{
+    float: right;
+    height: 40px;
+    width: 200px;
+    color: black;
+}
+
+#searchBarButton{
+    float: right;
+    height: 40px;
+    background-color: #2e6da4;
+    color: black;
+}
