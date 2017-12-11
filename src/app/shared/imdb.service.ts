@@ -8,10 +8,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class imdbService {
   private _iMDBURL: string = 'https://api.themoviedb.org/3/';
-  // CANT PARSE THE POSTERS
-  // 'http://img.omdbapi.com/?i=tt1285016&apikey=d3908ab8'
-  // Returning a json format movie
-  // 'http://www.omdbapi.com/?i=tt1285016&apikey=d3908ab8';
+
   constructor(private _http: HttpClient) { }
 
   /* 
@@ -25,10 +22,17 @@ getiMDB(value): Observable<IShows[]> {
   }
 
   // How do I pass the movie title?
-  searchMDBMovie(MovieTitle) : Observable<any>{
-    return this._http.get<any>(this._iMDBURL + 'search/movie?api_key=b1486a6362ec4507649074230d7aa50b&language=en-US&query=' + MovieTitle + '&page=1&include_adult=false')
+  searchMDBMovie(value) : Observable<any>{
+    console.log("SC2!!!! " + value)
+    return this._http.get<any>(this._iMDBURL + 'search/movie?api_key=b1486a6362ec4507649074230d7aa50b&language=en-US&query=' + value + '&page=1&include_adult=false')
     .do(data => console.log('All: ' + JSON.stringify(data)))
     .catch(this.handleError);
+  }
+
+  getOneMovie(): Observable<any> {
+    return this._http.get<any>(this._iMDBURL + 'search/movie?api_key=b1486a6362ec4507649074230d7aa50b&query=Pulp+Fiction')
+      .do(data => console.log('All: ' + JSON.stringify(data)))
+      .catch(this.handleError);
   }
 
   private handleError(err: HttpErrorResponse) {

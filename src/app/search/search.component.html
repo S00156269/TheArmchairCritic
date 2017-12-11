@@ -1,8 +1,13 @@
-<div id="Poster">
-  <button id= "searchBarButton" (click)= "sendRequest(MovieTitle.value)"  >Search</button>
-  <input id="MovieTitle" class= "searchBar" type="text" #MovieTitle>
+<div id="Information">
+
+  <button id= "searchBarButton" (click)="sendRequest(MovieTitle.value)" >Search</button>
+  <input class="searchBar" type="text" #MovieTitle />
+
+</div>
+
+<div id="container">
+  <div class = "PosterDiv" *ngFor="let displayshows of searchedShows">
+    <!-- put in a href -->
+    <a href="https://www.google.com"><img class='Poster' id="{{displayshows.original_title}}" [src]= "getPosterUrl(displayshows.poster_path)"></a>
   </div>
-  
-  <div id="Information">
-  
-  </div>
+</div>
