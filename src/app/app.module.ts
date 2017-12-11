@@ -29,6 +29,7 @@ const appRoutes: Routes = [
   { path: 'search', component: SearchComponent},
   { path: 'profile', component: ProfileComponent},
   { path: 'editprofile', component: EditprofileComponent},
+  { path: '', component: FilmsComponent},  
   { path: 'popularFilm', component: FilmsComponent},
   //temp
   { path: 'single', component: SinglefilmComponent},

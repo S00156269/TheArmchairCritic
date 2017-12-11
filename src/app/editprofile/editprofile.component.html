@@ -3,7 +3,7 @@
   <form #form="ngForm">
     <div id='Name' class='ProfileInfo'>
       <label for="inputName">Name: </label>
-      <input name="inputName" #username required>
+      <input name="inputName" #name required>
     </div>
 
     <div id='Bio' class='ProfileInfo'>
@@ -31,8 +31,5 @@
         <h4 (click)="addFaveFilm(show.original_title)">{{show.original_title}}</h4>
       </div>
     </div>
-    <div *ngIf="!success" class="alert alert-danger">
-      Please fill out the entire form!
-    </div>
-    <button type="submit" (click)="createUserProfile(username.value, bio.value)">Save</button>
+    <button type="submit" (click)="createUserProfile(name.value, bio.value)">Save</button>
   </form>

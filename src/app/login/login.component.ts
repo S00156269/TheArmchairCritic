@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../shared/auth.service';
 
@@ -9,19 +10,14 @@ import { AuthService } from '../shared/auth.service';
 export class LoginComponent{
   email: string;
   password: string;
-  success: boolean;
-  constructor(public authService: AuthService) {
-    this.success = true;
+  error: string;
+
+  constructor(public authService: AuthService, private router: Router) {
    }
 
   login() {
-    if(this.authService.login(this.email, this.password)){
-      this.email = this.password = '';
-      this.success = true;
-    }
-    else{
-      this.success = false;
-    }
+    this.authService.login(this.email, this.password).then(res=>{
+      this.router.navigate(['profile']); }   ).catch(err=>{this.error=err})
   }
 
   logout() {
