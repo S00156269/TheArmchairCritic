@@ -12,44 +12,33 @@ export class SearchComponent implements OnInit {
   errorMessage: any;
   MovieTitle: string;
 
-
-  _listFilter: string = "";
-  get listFilter(): string {
-    return this._listFilter;
-  }
-  set listFilter(value: string) {
-    this._listFilter = value;
-    this.filteredShows = this.listFilter ? this.filterShows(this.listFilter) : this.searchedShows;
-  }
-
   constructor(private _iMDBService: imdbService, private router: Router) {}
 
-  
-  filterShows(value: string): IShows[] {
-    value = value.toLocaleLowerCase();
-    return this.searchedShows.filter((show: IShows) => show.original_title.toLocaleLowerCase().indexOf(value) != -1);
-  }
-
   searchedShows: any[];
-  filteredShows: IShows[];
+  filteredShows: any[];
   posterURL: string;
   
+  getPosterUrl(value)
+  {    
+    return "https://image.tmdb.org/t/p/w1280" + value;
+  }
+
+  sendRequest(MovieTitle) {
+    console.log(" SC!!!! " + MovieTitle);
+    // RIGHT! the value for the movie title is coming into this log, put not sending to the
+    // service
+    this._iMDBService.searchMDBMovie(MovieTitle).subscribe( searchedShows => {
+      this.router.navigate(['/search'], { queryParams: { Title: MovieTitle } });
+      this.searchedShows = searchedShows.results;
+    },
+      error=>this.errorMessage=<any>error);
+  }
+
   getUrl(value)
   {    
     return "https://image.tmdb.org/t/p/w1280" + value;
   }
 
-  sendRequest(value)
-  {
-    // Need to route the shit outta this
-    this._iMDBService.searchMDBMovie(this.MovieTitle).subscribe( shows => {
-      this.searchedShows=shows.results;
-      this.router.navigateByUrl("/details");
-    },
-      error=>this.errorMessage=<any>error);
-  }
-
   public ngOnInit(): void {
-    
+    }
   }
-}

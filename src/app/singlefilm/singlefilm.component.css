@@ -1,0 +1,12 @@
+.Poster{
+    height: 500px;
+    width: 300px;
+}
+
+#FilmDiv{
+    float: left;
+}
+
+#MovieInfo{
+    margin-right: 200px;
+}

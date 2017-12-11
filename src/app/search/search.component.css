@@ -11,3 +11,24 @@
     background-color: #2e6da4;
     color: black;
 }
+
+.Poster{
+    height: 300px;
+    width: 200px;
+}
+
+.PosterDiv {
+
+    color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 150%;
+  }
+
+  #container{
+    display: grid;
+    grid-template-columns: 100px 100px 100px 100px;
+    grid-gap: 120px ;
+    background-color: #fff;
+    color: #444;
+}

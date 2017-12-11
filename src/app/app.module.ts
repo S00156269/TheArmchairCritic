@@ -18,13 +18,18 @@ import { AngularFireAuth, AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
 import { EditprofileComponent } from './editprofile/editprofile.component';
+import { SinglefilmComponent } from './singlefilm/singlefilm.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},
   { path: 'search', component: SearchComponent},
   { path: 'profile', component: ProfileComponent},
-  { path: 'editprofile', component: EditprofileComponent}
+  { path: 'editprofile', component: EditprofileComponent},
+  { path: 'popularFilm', component: FilmsComponent},
+  //temp
+  { path: 'single', component: SinglefilmComponent},
+  { path: 'search', component: SearchComponent}
 ]
 
 @NgModule({
@@ -37,7 +42,8 @@ const appRoutes: Routes = [
     ProfileComponent,
     LoginComponent,
     RegisterComponent,
-    EditprofileComponent
+    EditprofileComponent,
+    SinglefilmComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
