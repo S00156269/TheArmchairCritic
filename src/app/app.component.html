@@ -1,14 +1,9 @@
 <div id="wrapper" class='panel panel-primary'>
   <div class='panel-heading'>
 
-    <a class="btn btn-secondary" id="menuToggle">&#9776;</a>
+    <app-search></app-search>
 
     Welcome to {{title}}!
-
-    <button class='btn btn-primary'>Films</button>
-    <!-- (click) = 'toggleImage()' -->
-    <button class='btn btn-primary'>List</button>
-    <button class='btn btn-primary'>Reviewers</button>
   </div>
 
 
@@ -16,7 +11,7 @@
     <ul class="SidebarList">
 
       <li>
-        <a class="button js-button">Popular Films</a>
+        <a class="button js-button" [routerLink]= "['/popularFilm']">Popular Films</a>
       </li>
       <li>
         <a class="button js-button" [routerLink]="['/profile']">Profile</a>
@@ -24,7 +19,12 @@
       <li>
         <a class="button js-button" [routerLink]="['/login']">Sign in</a>
       </li>
-      <!-- Need to create an anchor for the create account -->
+      <li>
+          <a class="button js-button">Reviewers</a>
+      </li>
+      <li>
+          <a class="button js-button" [routerLink]="['/single']">Single Movie</a>
+        </li>
     </ul>
   </div>
 

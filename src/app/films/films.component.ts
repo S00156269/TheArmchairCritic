@@ -10,21 +10,9 @@ import { imdbService } from '../shared/imdb.service';
 })
 export class FilmsComponent implements OnInit {
   errorMessage: any;
-  _listFilter: string = "";
-  get listFilter(): string {
-    return this._listFilter;
-  }
-  set listFilter(value: string) {
-    this._listFilter = value;
-    this.filteredShows = this.listFilter ? this.filterShows(this.listFilter) : this.shows;
-  }
 
   constructor(private _iMDBService: imdbService) {}
-
-  filterShows(value: string): IShows[] {
-    value = value.toLocaleLowerCase();
-    return this.shows.filter((show: IShows) => show.original_title.toLocaleLowerCase().indexOf(value) != -1);
-  }
+  
   shows: any[];
   filteredShows: IShows[];
   posterURL: string;
@@ -38,7 +26,7 @@ export class FilmsComponent implements OnInit {
 
   public ngOnInit(): void {
     this._iMDBService.getiMDB().subscribe( shows => {
-      this.shows=shows.results, 
+      this.shows = shows.results, 
       this.filteredShows = this.shows
     },
       error=>this.errorMessage=<any>error);

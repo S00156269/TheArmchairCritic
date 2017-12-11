@@ -21,6 +21,7 @@ import { environment } from '../environments/environment';
 import { EditprofileComponent } from './editprofile/editprofile.component';
 import { DataServiceService } from './shared/data-service.service';
 import { ReviewComponent } from './review/review.component';
+import { SinglefilmComponent } from './singlefilm/singlefilm.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent},
@@ -28,8 +29,10 @@ const appRoutes: Routes = [
   { path: 'search', component: SearchComponent},
   { path: 'profile', component: ProfileComponent},
   { path: 'editprofile', component: EditprofileComponent},
-  { path: '', component: FilmsComponent}
-
+  { path: 'popularFilm', component: FilmsComponent},
+  //temp
+  { path: 'single', component: SinglefilmComponent},
+  { path: 'search', component: SearchComponent}
 ]
 
 @NgModule({
@@ -42,7 +45,8 @@ const appRoutes: Routes = [
     LoginComponent,
     RegisterComponent,
     EditprofileComponent,
-    ReviewComponent
+    ReviewComponent,
+    SinglefilmComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
