@@ -1,41 +1,38 @@
-<div id='container'>
+<div class='container'>
   <h2>Profile</h2>
-  
-  <div id='Pic' class='ProfileInfo'>
-    <p>Upload Profile Pic! </p>
-    
-  </div>
-  
-  <div id='Bio' class='ProfileInfo'>
-      <p>Bio: </p>
-      <textarea id="InputName" name="InputName" cols="50" rows="10"></textarea>
+  <form #form="ngForm">
+    <div id='Name' class='ProfileInfo'>
+      <label for="inputName">Name: </label>
+      <input name="inputName" #username required>
     </div>
-  
-  <div id='Name' class='ProfileInfo'>
-    <p>Name: </p>
-    <input id='InputName' #UserName>
-  </div>
-  
-  <div id='FavGenre' class='ProfileInfo'>
-    <p>Favourite Genre: </p>
-    <div id='GenreBox'>
-      <input type="checkbox" name="radio">Horror
-      <br>
-      <input type="checkbox" name="radio">Action
-      <br>
-      <input type="checkbox" name="radio">Sci-fi
+
+    <div id='Bio' class='ProfileInfo'>
+      <label for="inputBio">Bio: </label>
+      <textarea name="inputBio" cols="50" rows="10" #bio required></textarea>
     </div>
-  </div>
-  
-  <div id='FavMovies' class='ProfileInfo'>
-    <p>Favourite Movie's: </p>
-    <input id='FavMovie1' class='FavMovie' #UserFav>
-    <br>
-    <input id='FavMovie2' class='FavMovie' #UserFav>
-    <br>
-    <input id='FavMovie3' class='FavMovie' #UserFav>
-  </div>
-  
-  <button type="submit">Save</button>
-  
-  </div>
+
+    <div id='FavGenre' class='ProfileInfo'>
+      <p>Favourite Genre: </p>
+      <div id='GenreBox'>
+        <div *ngFor="let genre of availableGenres">
+          <input type="checkbox" name="genre" [value]="genre" (change)="getGenres(genre)">{{genre}}
+        </div>
+      </div>
+    </div>
+
+    <div id='FavMovies' class='ProfileInfo'>
+      <p>Favourite Movies: </p>
+      <div *ngFor="let movie of faveMovies">
+        <h3>{{movie}}</h3>
+        <button (click)="removeFaveMovie(movie)">Remove {{movie}}</button>
+      </div>
+      <input #searchTerm type="text" (input)="search(searchTerm.value)" placeholder="search movies..." class="input">
+      <div *ngFor="let show of shows">
+        <h4 (click)="addFaveFilm(show.original_title)">{{show.original_title}}</h4>
+      </div>
+    </div>
+    <div *ngIf="!success" class="alert alert-danger">
+      Please fill out the entire form!
+    </div>
+    <button type="submit" (click)="createUserProfile(username.value, bio.value)">Save</button>
+  </form>

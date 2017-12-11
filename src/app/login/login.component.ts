@@ -10,7 +10,9 @@ export class LoginComponent{
   email: string;
   password: string;
   success: boolean;
-  constructor(public authService: AuthService) { }
+  constructor(public authService: AuthService) {
+    this.success = true;
+   }
 
   login() {
     if(this.authService.login(this.email, this.password)){
