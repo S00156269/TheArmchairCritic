@@ -8,7 +8,7 @@ import { NotificationService } from '../shared/notification.service';
 @Injectable()
 export class AuthService {
   user: Observable<firebase.User>;
-
+  error: string;
   constructor(private firebaseAuth: AngularFireAuth) {
     this.user = firebaseAuth.authState;
   }
@@ -22,19 +22,14 @@ export class AuthService {
       })
       .catch(err => {
         console.log('Something went wrong:', err.message);
+        this.error = err.message;
       });
   }
 
   login(email: string, password: string) {
-    this.firebaseAuth
+    return this.firebaseAuth
       .auth
-      .signInWithEmailAndPassword(email, password)
-      .then(value => {
-        console.log('Nice, it worked!');
-      })
-      .catch(err => {
-        console.log('Something went wrong:', err.message);
-      });
+      .signInWithEmailAndPassword(email, password);
   }
 
   logout() {
