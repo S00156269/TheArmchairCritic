@@ -14,13 +14,13 @@
         <a class="button js-button" [routerLink]= "['/popularFilm']">Popular Films</a>
       </li>
       <li>
-        <a class="button js-button" [routerLink]="['/profile']">Profile</a>
+        <a class="button js-button" [routerLink]="['/profile']" *ngIf="(afa.user | async)">Profile</a>
       </li>
       <li>
-        <a class="button js-button" [routerLink]="['/login']">Sign in</a>
+        <a class="button js-button" [routerLink]="['/login']" *ngIf="!(afa.user | async)">Sign in</a>
       </li>
       <li>
-          <a class="button js-button">Reviewers</a>
+        <a class="button js-button" (click)="logout()" *ngIf="(afa.user | async)">Log out</a>
       </li>
       <li>
           <a class="button js-button" [routerLink]="['/single']">Single Movie</a>
