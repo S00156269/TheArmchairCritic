@@ -5,7 +5,7 @@
     <textarea #content required></textarea>
     <label for="rating">Rating:</label>
     <input type="number" #rating>
-    <button >Create your review.</button>
+    <button (click)="createReview(content.value, rating.value)">Create your review.</button>
   </form>
 </div>
 

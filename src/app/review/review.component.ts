@@ -16,7 +16,7 @@ export class ReviewComponent implements OnInit {
     
   }
 
-  createReview(){
+  createReview(content, rating){
 
   }
 
