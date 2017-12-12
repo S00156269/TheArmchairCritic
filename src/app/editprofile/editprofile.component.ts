@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { DataServiceService } from '../shared/data-service.service';
 import { Observable } from 'rxjs/Rx';
 import { FormBuilder, FormGroup } from '@angular/forms';
@@ -17,7 +18,6 @@ import { AngularFireDatabase } from 'angularfire2/database';
 })
 
 export class EditprofileComponent implements OnInit {
-  reviewers: FirebaseListObservable<any[]>;
   form: FormGroup;
   filteredMovies: string[];
   currentReviewer: Reviewer;
@@ -28,22 +28,23 @@ export class EditprofileComponent implements OnInit {
   shows: IShows[];
   filteredShows: IShows[];
   errorMessage: any;
-  _listFilter: string = "";
-  constructor(public authService: AuthService, public afa: AngularFireAuth, private _iMDBService: imdbService, private db: AngularFireDatabase, private service: DataServiceService) {
+  
+  constructor(public authService: AuthService, public afa: AngularFireAuth, private _iMDBService: imdbService, private db: AngularFireDatabase, private data: DataServiceService, private router: Router) {
     this.availableGenres = ["Horror", "Action", "Sci-Fi", "Thriller", "Comedy"];
     this.success = true;
     this.currentReviewer = new Reviewer;
   }
 
-  createUserProfile(username: string, bio: string) {
-    if (username != null && username != "" && bio != null && bio != "") {
-      this.currentReviewer.Name = username;
+  createUserProfile(name, bio) {
+    if (name != null && name != "" && bio != null && bio != "") {
+      this.currentReviewer.Name = name;
       this.currentReviewer.Bio = bio;
       this.currentReviewer.FaveGenres = this.faveGenres;
       this.currentReviewer.FaveMovies = this.faveMovies;
       console.log(this.currentReviewer);
-      this.service.createUser(this.formatPost(this.currentReviewer,));
-    }
+      this.data.createUser(this.formatPost(this.currentReviewer));
+      this.router.navigate(['profile']);
+      }
     else {
       this.success = false;
     }

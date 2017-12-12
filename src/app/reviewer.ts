@@ -1,7 +1,11 @@
+import { Review } from './review';
+
 export class Reviewer {
     Name: string;
     Bio: string;
     FaveGenres: string[];
     FaveMovies: string[];
-    Reviews: string[];
+    Reviews: {
+        Review: Review[];
+    }
 }
