@@ -1,12 +1,21 @@
 .Poster{
-    height: 500px;
-    width: 300px;
-}
-
-#FilmDiv{
-    float: left;
+    height: 400px;
+    width: 250px;
 }
 
 #MovieInfo{
-    margin-right: 200px;
+    position: absolute;
+    margin-left: 20%;
+    float: right;
+    height: 100%;
+    width: 60%;
+}
+
+#ReviewButton{
+    height: 40px;
+    width: 120px;
+    text-align: center;
+    margin-left: 300px;
+    margin-top: 40px;
+
 }

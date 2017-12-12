@@ -3,8 +3,10 @@
 
     <div class = "PosterDiv" *ngFor="let show of shows">
       <!-- put in a href -->
-      <a href="https://www.google.com"><img class='Poster' id="{{show.original_title}}" [src]= "getUrl(show.poster_path)"></a>
+      <a><img class='Poster' id="{{show.original_title}}" (click)="GoToMovie(show.id)" [src]= "getUrl(show.poster_path)"></a>
     </div>
 
 <!-- End of containter -->
 </div>
+
+
