@@ -8,6 +8,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class imdbService {
   private _iMDBURL: string = 'https://api.themoviedb.org/3/';
+  private _TheMovieDb: string = 'https://api.themoviedb.org/3/movie/';
 
   constructor(private _http: HttpClient) { }
 
@@ -29,8 +30,8 @@ getiMDB(value): Observable<IShows[]> {
     .catch(this.handleError);
   }
 
-  getOneMovie(): Observable<any> {
-    return this._http.get<any>(this._iMDBURL + 'search/movie?api_key=b1486a6362ec4507649074230d7aa50b&query=Pulp+Fiction')
+  getOneMovie(value): Observable<any> {
+    return this._http.get<any>(this._TheMovieDb + value + '?api_key=b1486a6362ec4507649074230d7aa50b')
       .do(data => console.log('All: ' + JSON.stringify(data)))
       .catch(this.handleError);
   }

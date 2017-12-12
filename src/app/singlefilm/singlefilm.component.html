@@ -1,19 +1,24 @@
 <div id="container">
 
+    <div id="MovieInfo">
+        <h2>{{shows.original_title}}</h2>
+        <h3>Plot:</h3>
+        <p>{{shows.overview}}</p>
+        <h3>Release Date:</h3>
+        {{shows.release_date}}
+        <h3>Voting:</h3>
+        <app-star-rating [rating] = 'shows.vote_average'></app-star-rating>
+        {{shows.vote_average}}
+      </div>
+
     <div class = "FilmDiv">
       <!-- put in a href -->
-      <img class='Poster' id="{{shows[0].original_title}}" [src]= "getUrl(shows[0].poster_path)">
-
-  <div id="MovieInfo">
-    <h2>{{shows[0].original_title}}</h2>
-    <h3>Plot:</h3>
-    <p>{{shows[0].overview}}</p>
-    <h3>Release Date:</h3>
-    {{shows[0].release_date}}
-    <h3>Voting:</h3>
-    {{shows[0].vote_average}}
-  </div>
-  </div>
+      <img class='Poster' [src]= "getUrl(shows.poster_path)">
+    </div>
+    
+    <div id="StartReview">
+        <button id="ReviewButton" class="btn btn-primary" type="button">Review This!</button>
+    </div>
 
 <!-- End of containter -->
 </div>

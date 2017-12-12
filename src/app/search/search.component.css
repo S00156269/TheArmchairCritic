@@ -32,3 +32,9 @@
     background-color: #fff;
     color: #444;
 }
+
+#Information{
+    position: absolute;
+    margin-bottom: 100px;
+    margin-left: 760px;
+}
