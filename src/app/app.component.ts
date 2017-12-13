@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from './shared/auth.service';
+import { DataServiceService } from './shared/data-service.service';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +9,8 @@ import { AuthService } from './shared/auth.service';
 })
 export class AppComponent {
   title = 'Armchair Critic';
-  constructor(public afa: AuthService){
-
+  constructor(public afa: AuthService, public data: DataServiceService){
+    
   }
   logout() {
     this.afa.logout();
