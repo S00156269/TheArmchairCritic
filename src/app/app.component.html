@@ -1,7 +1,7 @@
 <div id="wrapper" class='panel panel-primary'>
   <div class='panel-heading'>
 
-    
+    <app-search-bar></app-search-bar>
 
     Welcome to {{title}}!
   </div>
@@ -22,14 +22,10 @@
       <li>
         <a class="button js-button" (click)="logout()" *ngIf="(afa.user | async)">Log out</a>
       </li>
-      <li>
-          <a class="button js-button" [routerLink]="['/single']">Single Movie</a>
-        </li>
     </ul>
   </div>
 
   <div id="MainBody">
-      <app-search></app-search>
       <router-outlet></router-outlet>
     </div>
 </div>
