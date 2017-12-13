@@ -1,15 +1,11 @@
 <div id="wrapper" class='panel panel-primary'>
   <div class='panel-heading'>
-
-    
-
     Welcome to {{title}}!
   </div>
 
 
   <div id="Sidebar">
     <ul class="SidebarList">
-
       <li>
         <a class="button js-button" [routerLink]= "['/popularFilm']">Popular Films</a>
       </li>
@@ -22,9 +18,6 @@
       <li>
         <a class="button js-button" (click)="logout()" *ngIf="(afa.user | async)">Log out</a>
       </li>
-      <li>
-          <a class="button js-button" [routerLink]="['/single']">Single Movie</a>
-        </li>
     </ul>
   </div>
 

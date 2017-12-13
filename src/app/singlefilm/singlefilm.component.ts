@@ -2,6 +2,7 @@ import { IShows } from '../films/iShows';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { imdbService } from '../shared/imdb.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Input } from '@angular/core/src/metadata/directives';
 
 @Component({
   selector: 'app-singlefilm',
@@ -11,7 +12,10 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class SinglefilmComponent implements OnInit {
   errorMessage: any;
   _listFilter: string = "";
-
+  showReview: boolean;
+  show: IShows;
+  posterURL: string;
+  
   get listFilter(): string {
     return this._listFilter;
   }
@@ -19,36 +23,33 @@ export class SinglefilmComponent implements OnInit {
     this._listFilter = value;
   }
 
-  constructor(private _iMDBService: imdbService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private _iMDBService: imdbService, private router: Router, private route: ActivatedRoute) {
+    this.showReview = false;
+  }
 
-  shows: any[];
-  posterURL: string;
-  
-  getUrl(value)
-  {    
+  getUrl(value) {
     return "https://image.tmdb.org/t/p/w1280" + value;
   }
 
   getMovie(value) {
     this._iMDBService.getOneMovie(value)
       .subscribe(res => {
-        this.shows = res;
+        this.show = res;
       });
   }
 
-   ngOnInit() {
-      this.route.queryParams
+  reviewFilm() {
+    this.showReview = true;
+    console.log(this.showReview);
+  }
+
+  ngOnInit() {
+    this.route.queryParams
       .filter(params => params.id)
       .subscribe(params => {
-        if (params['id']){
+        if (params['id']) {
           this.getMovie(params.id);
         }
       });
-    }
   }
-
-
-    /*
-    this._iMDBService.getOneMovie().subscribe( shows => {
-      this.shows=shows.results */
-      
+}
