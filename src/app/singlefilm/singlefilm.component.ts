@@ -1,4 +1,4 @@
-import { IShows } from '../films/iShows';
+import { IShows } from '../shared/iShows';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { imdbService } from '../shared/imdb.service';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -21,7 +21,7 @@ export class SinglefilmComponent implements OnInit {
 
   constructor(private _iMDBService: imdbService, private router: Router, private route: ActivatedRoute) { }
 
-  shows: any[];
+  shows: IShows;
   posterURL: string;
   
   getUrl(value)

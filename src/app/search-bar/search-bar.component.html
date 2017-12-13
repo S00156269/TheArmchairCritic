@@ -1,4 +1,4 @@
 <div id="Information">
   <button id= "searchBarButton" (click)="StartTheSearch(MovieTitle.value)" >Search</button>
-  <input class="searchBar" type="text" (enter)="StartTheSearch(MovieTitle.value)" #MovieTitle />
+  <input class="searchBar" type="text" (keyup.enter)="StartTheSearch(MovieTitle.value)" #MovieTitle />
 </div>

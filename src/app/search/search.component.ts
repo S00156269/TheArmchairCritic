@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IShows } from '../films/iShows';
+import { IShows } from '../shared/iShows';
 import { imdbService } from '../shared/imdb.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
