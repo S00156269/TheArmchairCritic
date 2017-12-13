@@ -1,11 +1,11 @@
 export interface IShows
 {
-    id: number;
+    Id: number;
     original_title: string;
     vote_average: number;
     release_date: string;
     overview: string;
-    year: string;
+    Year: string;
     poster_path: string;
 }
 
