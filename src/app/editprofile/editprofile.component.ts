@@ -113,7 +113,7 @@ export class EditprofileComponent implements OnInit {
       "Bio": user.Bio,
       "FaveGenres": user.FaveGenres,
       "FaveMovies": user.FaveMovies,
-      "reviews": user.reviews
+      "reviews": user.Reviews
     }
   }
 
@@ -130,7 +130,7 @@ export class EditprofileComponent implements OnInit {
   }
 
   deleteReview(review){
-    this.currentReviewer.reviews.splice(this.currentReviewer.reviews.indexOf(review), 1)
+    this.currentReviewer.Reviews.splice(this.currentReviewer.Reviews.indexOf(review), 1)
     
     console.log(this.currentReviewer);
   }

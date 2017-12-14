@@ -32,7 +32,7 @@
       </div>
     </div>
 
-    <div *ngFor="let review of currentReviewer.reviews">
+    <div *ngFor="let review of currentReviewer.Reviews">
       {{review.MovieName}} {{review.AuthorName}} {{review.Content}} {{review.Score}}
       <button (click)="deleteReview()">Delete Review</button>
     </div>

@@ -5,5 +5,5 @@ export class Reviewer {
     Bio: string;
     FaveGenres: string[];
     FaveMovies: string[];
-    reviews:  Review[];
+    Reviews:  Review[];
 }

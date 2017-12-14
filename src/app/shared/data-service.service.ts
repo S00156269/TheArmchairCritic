@@ -35,9 +35,9 @@ export class DataServiceService {
         this.http.patch('https://armchaircritic-c8e75.firebaseio.com/films/' + filmID + ".json", data).subscribe(res => { console.log(res) });
     }
     getReviewsForFilm(filmID): Observable<any>{
-        return this.http.get('https://armchaircritic-c8e75.firebaseio.com/films/' + filmID + "/reviews" + ".json");
+        return this.http.get('https://armchaircritic-c8e75.firebaseio.com/films/' + filmID + "/Reviews" + ".json");
     }
     getReviewsForProfile(userID): Observable<any>{
-        return this.http.get('https://armchaircritic-c8e75.firebaseio.com/user/' + userID + "/reviews" + ".json");
+        return this.http.get('https://armchaircritic-c8e75.firebaseio.com/user/' + userID + "/Reviews" + ".json");
     }
 }

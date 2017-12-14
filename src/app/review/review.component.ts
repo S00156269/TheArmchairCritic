@@ -48,14 +48,14 @@ export class ReviewComponent implements OnInit {
     this.review.MovieID = this.movieID;
     this.review.Score = rating;
     this.review.MovieName = this.movieName;
-    this.reviewer.reviews.push(this.review);
+    this.reviewer.Reviews.push(this.review);
     this.data.createReview(this.formatPost(), this.uid, this.movieID);
 
   }
 
   formatPost(): any {
     return {
-      "Reviews": this.reviewer.reviews
+      "Reviews": this.reviewer.Reviews
     }
   }
 
