@@ -104,7 +104,7 @@ export class EditprofileComponent implements OnInit {
     this.currentReviewer.FaveMovies = this.currentReviewer.FaveMovies;
     console.log(this.currentReviewer);
     this.data.createUser(this.formatPost(this.currentReviewer));
-    //this.router.navigate(['profile']);
+    this.router.navigate(['profile']);
   }
 
   formatPost(user: Reviewer): any {
