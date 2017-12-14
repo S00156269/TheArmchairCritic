@@ -20,7 +20,7 @@
         <a class="button js-button" [routerLink]="['/login']" *ngIf="!(afa.user | async)">Sign in</a>
       </li>
       <li>
-        <a class="button js-button" (click)="logout()" *ngIf="(afa.user | async)">Log out</a>
+        <a class="button js-button" (click)="logout()" [routerLink]="['/popularFilm']" *ngIf="(afa.user | async)">Log out</a>
       </li>
     </ul>
   </div>

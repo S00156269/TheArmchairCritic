@@ -3,26 +3,26 @@
   <form #form="ngForm">
     <div id='Name' class='ProfileInfo'>
       <label for="inputName">Name: </label>
-      <input name="inputName" #name required>
+      <input name="inputName" [placeholder]="getName()" #name>
     </div>
 
     <div id='Bio' class='ProfileInfo'>
       <label for="inputBio">Bio: </label>
-      <textarea name="inputBio" cols="50" rows="10" #bio required></textarea>
+      <textarea name="inputBio" cols="50" rows="10" [placeholder]="getBio()" #bio></textarea>
     </div>
 
     <div id='FavGenre' class='ProfileInfo'>
       <p>Favourite Genre: </p>
       <div id='GenreBox'>
         <div *ngFor="let genre of availableGenres">
-          <input type="checkbox" name="genre" [value]="genre" (change)="getGenres(genre)">{{genre}}
+          <input type="checkbox" name="genre" [value]="genre" (change)="getGenres(genre)" [checked]="checkGenres(genre)">{{genre}}
         </div>
       </div>
     </div>
 
     <div id='FavMovies' class='ProfileInfo'>
       <p>Favourite Movies: </p>
-      <div *ngFor="let movie of faveMovies">
+      <div *ngFor="let movie of currentReviewer.FaveMovies">
         <h3>{{movie}}</h3>
         <button (click)="removeFaveMovie(movie)">Remove {{movie}}</button>
       </div>
@@ -31,5 +31,11 @@
         <h4 (click)="addFaveFilm(show.original_title)">{{show.original_title}}</h4>
       </div>
     </div>
+
+    <div *ngFor="let review of currentReviewer.reviews">
+      {{review.MovieName}} {{review.AuthorName}} {{review.Content}} {{review.Score}}
+      <button (click)="deleteReview()">Delete Review</button>
+    </div>
+
     <button type="submit" (click)="createUserProfile(name.value, bio.value)">Save</button>
   </form>
