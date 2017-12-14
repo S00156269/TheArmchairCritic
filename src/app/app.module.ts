@@ -7,7 +7,6 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { FilmsComponent } from './films/films.component';
-import { ListComponent } from './list/list.component';
 import { SearchComponent } from './search/search.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -40,7 +39,6 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     FilmsComponent,
-    ListComponent,
     SearchComponent,
     ProfileComponent,
     LoginComponent,
