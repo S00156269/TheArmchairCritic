@@ -1,4 +1,4 @@
-<div class='container' *ngIf="currentReviewer">
+<div class='container'>
   <h2>Profile</h2>
   <form #form="ngForm">
     <div id='Name' class='ProfileInfo'>
@@ -24,15 +24,6 @@
       <p>Favourite Movies: </p>
       <div *ngFor="let movie of currentReviewer.FaveMovies">
         <h3>{{movie}}</h3>
-      </div>
-    </div>
-
-    <div *ngFor="let review of currentReviewer.Reviews">
-      <div class="container">
-          <h3>{{review.MovieName}}</h3>
-          <h3>{{review.AuthorName}}</h3>
-          <h3>{{review.Content}}</h3>
-          <h3>{{review.Score}}</h3>
       </div>
     </div>
 

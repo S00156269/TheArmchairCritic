@@ -8,7 +8,7 @@
 #container{
     display: grid;
     grid-template-columns: 100px 100px 100px 100px;
-    grid-gap: 120px ;
+    grid-gap: 110px ;
     background-color: #fff;
     color: #444;
 }

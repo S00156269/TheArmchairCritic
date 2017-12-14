@@ -1,4 +1,4 @@
-import { IShows } from '../films/iShows';
+import { IShows } from '../shared/iShows';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { imdbService } from '../shared/imdb.service';
 import { Router } from '@angular/router';
