@@ -8,7 +8,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { FirebaseListObservable } from "angularfire2/database-deprecated";
 import { Reviewer } from '../reviewer';
 import { imdbService } from '../shared/imdb.service';
-import { IShows } from '../films/iShows';
+import { IShows } from '../shared/iShows';
 import { AngularFireDatabase } from 'angularfire2/database';
 
 @Component({
