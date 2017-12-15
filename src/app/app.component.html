@@ -6,12 +6,17 @@
     Welcome to {{title}}!
   </div>
 
-
   <div id="Sidebar">
     <ul class="SidebarList">
 
       <li>
         <a class="button js-button" [routerLink]= "['/popularFilm']">Popular Films</a>
+      </li>
+      <li>
+        <a class="button js-button" [routerLink]= "['/best']">Voted Best</a>
+      </li>
+      <li>
+        <a class="button js-button" [routerLink]= "['/worst']">Voted Worst</a>
       </li>
       <li>
         <a class="button js-button" [routerLink]="['/profile']" *ngIf="(afa.user | async)">Profile</a>
