@@ -10,7 +10,7 @@
       </button>
       <button mat-menu-item *ngIf="(afa.user | async)" [routerLink]="['/profile']"> 
         <mat-icon>home</mat-icon>
-        <p>Profile</p>
+        Profile
       </button>
       <button mat-menu-item [routerLink]="['/login']" *ngIf="!(afa.user | async)">
         <mat-icon>person_outline</mat-icon>
