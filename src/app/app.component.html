@@ -20,6 +20,14 @@
         <mat-icon>home</mat-icon>
         Profile
       </button>
+      <button mat-menu-item [routerLink]="['/best']">
+        <mat-icon><i class="material-icons">thumb_up</i></mat-icon>
+        Best Voted Films
+      </button>
+      <button mat-menu-item [routerLink]="['/worst']">
+        <mat-icon><i class="material-icons">thumb_down</i></mat-icon>
+        Worst Voted Films
+      </button>
       <button mat-menu-item [routerLink]="['/login']" *ngIf="!(afa.user | async)">
         <mat-icon>person_outline</mat-icon>
         Sign in
