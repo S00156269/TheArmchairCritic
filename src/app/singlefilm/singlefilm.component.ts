@@ -29,7 +29,6 @@ export class SinglefilmComponent implements OnInit {
   }
 
   shows: IShows;
-  posterURL: string;
   
   // Display the poster
   getUrl(value)
