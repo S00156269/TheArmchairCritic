@@ -1,4 +1,4 @@
-<div id="Information">
-  <button id="searchBarButton" (click)="StartTheSearch(MovieTitle.value)">Search</button>
-  <input class="searchBar" type="text" (keyup.enter)="StartTheSearch(MovieTitle.value)" #MovieTitle />
-</div>
+<mat-form-field class="form-field">
+    <input matInput type="text" placeholder="Search films..." (keyup.enter)="StartTheSearch(MovieTitle.value)" #MovieTitle/>
+  </mat-form-field>
+  

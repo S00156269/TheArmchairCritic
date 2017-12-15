@@ -3,7 +3,7 @@ import { imdbService } from '../app/shared/imdb.service';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ElementRef } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { FilmsComponent } from './films/films.component';
@@ -23,6 +23,42 @@ import { ReviewComponent } from './review/review.component';
 import { SinglefilmComponent } from './singlefilm/singlefilm.component';
 import { StarRatingComponent } from './star-rating/star-rating.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FlexLayoutModule } from "@angular/flex-layout";
+import {
+  MatAutocompleteModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatChipsModule,
+  MatDatepickerModule,
+  MatDialogModule,
+  MatExpansionModule,
+  MatGridListModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatMenuModule,
+  MatNativeDateModule,
+  MatPaginatorModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule,
+  MatRadioModule,
+  MatRippleModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatSliderModule,
+  MatSlideToggleModule,
+  MatSnackBarModule,
+  MatSortModule,
+  MatTableModule,
+  MatTabsModule,
+  MatToolbarModule,
+  MatTooltipModule,
+  MatStepperModule,
+  MatSidenavContainer
+} from '@angular/material'; //phew!
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -60,7 +96,39 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AngularFireDatabaseModule
+    BrowserAnimationsModule,
+    AngularFireDatabaseModule,
+    MatAutocompleteModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    MatExpansionModule,
+    MatGridListModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
+    MatMenuModule,
+    MatNativeDateModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatRadioModule,
+    MatRippleModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatSnackBarModule,
+    MatSortModule,
+    MatTableModule,
+    MatTabsModule,
+    MatToolbarModule,
+    MatTooltipModule,
+    MatStepperModule
   ],
   providers: [AuthService, AngularFireAuth, imdbService, AngularFireDatabase, DataServiceService],
 

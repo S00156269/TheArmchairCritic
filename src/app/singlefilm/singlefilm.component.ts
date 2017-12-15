@@ -3,6 +3,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { imdbService } from '../shared/imdb.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { DataServiceService } from '../shared/data-service.service';
+import { Review } from '../review';
 
 @Component({
   selector: 'app-singlefilm',
