@@ -19,8 +19,6 @@ export class SearchComponent implements OnInit {
   filteredShows: any[];
   posterURL: string;
 
-  constructor(private _iMDBService: imdbService, private router: Router, private route: ActivatedRoute) {}
-  
   // Heres the poster method again
   getPosterUrl(value)
   {    
@@ -59,4 +57,3 @@ export class SearchComponent implements OnInit {
     }
 
   }
-}
