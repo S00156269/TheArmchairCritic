@@ -27,5 +27,9 @@
       </div>
     </div>
 
+    <div *ngFor="let review of currentReviewer.Reviews">
+      {{review.MovieName}} {{review.AuthorName}} {{review.Content}} {{review.Score}}
+    </div>
+
     <button type="submit" (click)="editProfile()">Edit</button>
   </form>

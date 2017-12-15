@@ -11,6 +11,10 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class SearchComponent implements OnInit {
   errorMessage: any;
   MovieTitle: string;
+
+
+  constructor(private _iMDBService: imdbService, private router: Router, private route: ActivatedRoute) { }
+
   searchedShows: any[];
   filteredShows: any[];
   posterURL: string;
@@ -33,7 +37,7 @@ export class SearchComponent implements OnInit {
     this._iMDBService.searchMDBMovie(MovieTitle).subscribe( searchedShows => {
       this.searchedShows = searchedShows.results;
     },
-      error=>this.errorMessage=<any>error);
+      error => this.errorMessage = <any>error);
   }
 
   // Navigate to single page, send with the ID on the URL
@@ -53,4 +57,6 @@ export class SearchComponent implements OnInit {
           }
         });
     }
+
   }
+}

@@ -1,6 +1,8 @@
 <div id="container">
-  <div class = "PosterDiv" *ngFor="let displayshows of searchedShows">
+  <div class="PosterDiv" *ngFor="let displayshows of searchedShows">
     <!-- put in a href -->
-    <a><img class='Poster' id="{{displayshows.original_title}}" (click)="GoToMovie(displayshows.id)" [src]= "getPosterUrl(displayshows.poster_path)"></a>
+    <a>
+      <img class='Poster' id="{{displayshows.original_title}}" (click)="GoToMovie(displayshows.id)" [src]="getPosterUrl(displayshows.poster_path)">
+    </a>
   </div>
 </div>

@@ -10,7 +10,7 @@
     <ul class="SidebarList">
 
       <li>
-        <a class="button js-button" [routerLink]= "['/popularFilm']">Popular Films</a>
+        <a class="button js-button" [routerLink]="['/popularFilm']">Popular Films</a>
       </li>
       <li>
         <a class="button js-button" [routerLink]= "['/best']">Voted Best</a>
@@ -25,12 +25,12 @@
         <a class="button js-button" [routerLink]="['/login']" *ngIf="!(afa.user | async)">Sign in</a>
       </li>
       <li>
-        <a class="button js-button" (click)="logout()" *ngIf="(afa.user | async)">Log out</a>
+        <a class="button js-button" (click)="logout()" [routerLink]="['/popularFilm']" *ngIf="(afa.user | async)">Log out</a>
       </li>
     </ul>
   </div>
 
   <div id="MainBody">
-      <router-outlet></router-outlet>
-    </div>
+    <router-outlet></router-outlet>
+  </div>
 </div>

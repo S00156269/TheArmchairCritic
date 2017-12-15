@@ -8,18 +8,19 @@ import { AngularFireAuth } from 'angularfire2/auth';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent{
+export class LoginComponent {
   email: string;
   password: string;
   error: string;
 
   constructor(public authService: AuthService, private router: Router, public afa: AngularFireAuth) {
 
-   }
-
+  }
+  //uses authservice service to log in (it depends on the angular fireauth)
   login() {
-    this.authService.login(this.email, this.password).then(res=>{
-      this.router.navigate(['profile']); }   ).catch(err=>{this.error=err})
+    this.authService.login(this.email, this.password).then(res => {
+      this.router.navigate(['profile']);
+    }).catch(err => { this.error = err })
   }
 
   logout() {

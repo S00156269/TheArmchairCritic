@@ -38,13 +38,14 @@ export class FilmsComponent implements OnInit {
       this.router.navigate(['/single'], { queryParams: { id: id } });
     }
 
+
     // This is done immediatly when the page is initialised
     // The method will fill the shows with 20 popular movies
   public ngOnInit(): void {
-    this._iMDBService.getiMDB().subscribe( shows => {
+    this._iMDBService.getiMDB().subscribe(shows => {
       this.shows = shows.results
     },
-      error=>this.errorMessage=<any>error);
+      error => this.errorMessage = <any>error);
   }
 
 }

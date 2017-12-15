@@ -1,11 +1,9 @@
 <div class="container">
   <form #form="ngForm">
     <h1>Write your review.</h1>
-    <h2></h2> <!-- Passed movie title does here. -->
-    <textarea #content required></textarea>
+    <textarea #content></textarea>
     <label for="rating">Rating:</label>
     <input type="number" #rating>
     <button (click)="createReview(content.value, rating.value)">Create your review.</button>
   </form>
 </div>
-

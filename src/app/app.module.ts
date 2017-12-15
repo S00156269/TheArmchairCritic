@@ -7,7 +7,6 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { FilmsComponent } from './films/films.component';
-import { ListComponent } from './list/list.component';
 import { SearchComponent } from './search/search.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -38,14 +37,12 @@ const appRoutes: Routes = [
   { path: 'single', component: SinglefilmComponent},
   { path: 'best', component: BestMoviesComponent},
   { path: 'worst', component: WorstMoviesComponent}
-
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
     FilmsComponent,
-    ListComponent,
     SearchComponent,
     ProfileComponent,
     LoginComponent,
@@ -70,10 +67,10 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     HttpClientModule,
     AngularFireDatabaseModule
-    ],
+  ],
   providers: [AuthService, AngularFireAuth, imdbService, AngularFireDatabase, DataServiceService],
 
   bootstrap: [AppComponent]
 })
-export class AppModule { 
+export class AppModule {
 }

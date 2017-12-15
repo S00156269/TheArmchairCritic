@@ -1,25 +1,29 @@
-<div id="container">
+<div id="container" *ngIf="show">
 
     <div id="MovieInfo">
-        <h2>{{shows.original_title}}</h2>
+        <h2>{{show.original_title}}</h2>
         <h3>Plot:</h3>
-        <p>{{shows.overview}}</p>
+        <p>{{show.overview}}</p>
         <h3>Release Date:</h3>
-        {{shows.release_date}}
+        {{show.release_date}}
         <h3>Voting:</h3>
         {{shows.vote_average}}/10
         <h3>Popularity:</h3>
         {{shows.popularity}}%
       </div>
 
-    <div class = "FilmDiv">
-      <!-- put in a href -->
-      <img class='Poster' [src]= "getUrl(shows.poster_path)">
-    </div>
-    
-    <div id="StartReview">
-        <button id="ReviewButton" class="btn btn-primary" type="button">Review This!</button>
+    <div class="FilmDiv">
+        <!-- put in a href -->
+        <img class='Poster' [src]="getUrl(show.poster_path)">
     </div>
 
-<!-- End of containter -->
+    <div *ngFor="let review of reviews">
+        {{review.MovieName}} {{review.AuthorName}} {{review.Content}} {{review.Score}}
+        <button (click)="deleteReview()">Delete Review</button>
+    </div>
+
+    <div id="StartReview">
+        <button id="ReviewButton" (click)="writeReview()" class="btn btn-primary" type="button">Review This!</button>
+        <app-review *ngIf="review" [movieID]="show.id" [movieName]="show.original_title"></app-review>
+    </div>
 </div>

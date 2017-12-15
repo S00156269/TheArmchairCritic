@@ -27,10 +27,11 @@ export class imdbService {
   // This method searched for a movie, I pass a value into the method using the string above then the title then another 
   // string I can search the entire DB and display whatever is related
   searchMDBMovie(value) : Observable<any>{
+
     console.log("SC2!!!! " + value)
     return this._http.get<any>(this._iMDBURL + 'search/movie?api_key=b1486a6362ec4507649074230d7aa50b&language=en-US&query=' + value + '&page=1&include_adult=false')
-    .do(data => console.log('All: ' + JSON.stringify(data)))
-    .catch(this.handleError);
+      .do(data => console.log('All: ' + JSON.stringify(data)))
+      .catch(this.handleError);
   }
 
   // This method returns the Json of one film that is used to display the single film

@@ -2,6 +2,7 @@ import { IShows } from '../shared/iShows';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { imdbService } from '../shared/imdb.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { DataServiceService } from '../shared/data-service.service';
 
 @Component({
   selector: 'app-singlefilm',
@@ -11,7 +12,10 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class SinglefilmComponent implements OnInit {
   errorMessage: any;
   _listFilter: string = "";
-
+  show: IShows;
+  posterURL: string;
+  reviews: any[];
+  review: boolean;
   get listFilter(): string {
     return this._listFilter;
   }
@@ -19,7 +23,9 @@ export class SinglefilmComponent implements OnInit {
     this._listFilter = value;
   }
 
-  constructor(private _iMDBService: imdbService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private _iMDBService: imdbService, private router: Router, private route: ActivatedRoute, private data: DataServiceService) {
+    this.review = false;
+  }
 
   shows: IShows;
   posterURL: string;
@@ -27,6 +33,7 @@ export class SinglefilmComponent implements OnInit {
   // Display the poster
   getUrl(value)
   {    
+
     return "https://image.tmdb.org/t/p/w1280" + value;
   }
 
@@ -35,25 +42,32 @@ export class SinglefilmComponent implements OnInit {
   getMovie(value) {
     this._iMDBService.getOneMovie(value)
       .subscribe(res => {
-        this.shows = res;
+        this.show = res;
       });
   }
 
-  // This is how the movie is searched for, as you can see the params is the id, this is what I used to search
+  getReviews(id) {
+    this.data.getReviewsForFilm(id).subscribe(res => {
+      console.log(res);
+      this.reviews = res;
+    });
+  }
+
+  writeReview() {
+    this.review = true;
+  }
+
+  //Grabs the movie id on init so we can show the movie and get its reviews
+   // This is how the movie is searched for, as you can see the params is the id, this is what I used to search
   // for the movie and display it on initialize
-   ngOnInit() {
-      this.route.queryParams
+  ngOnInit() {
+    this.route.queryParams
       .filter(params => params.id)
       .subscribe(params => {
-        if (params['id']){
+        if (params['id']) {
           this.getMovie(params.id);
+          this.getReviews(params.id);
         }
       });
-    }
   }
-
-
-    /*
-    this._iMDBService.getOneMovie().subscribe( shows => {
-      this.shows=shows.results */
-      
+}
