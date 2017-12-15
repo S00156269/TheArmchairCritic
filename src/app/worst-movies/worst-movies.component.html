@@ -1,0 +1,6 @@
+<div id="container">
+  <div class = "PosterDiv" *ngFor="let worstshows of searchedShows">
+    <!-- put in a href -->
+    <a><img class='Poster' id="{{worstshows.original_title}}" (click)="GoToMovie(worstshows.id)" [src]= "getPosterUrl(worstshows.poster_path)"></a>
+  </div>
+</div>

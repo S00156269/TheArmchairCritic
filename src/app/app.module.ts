@@ -23,16 +23,20 @@ import { ReviewComponent } from './review/review.component';
 import { SinglefilmComponent } from './singlefilm/singlefilm.component';
 import { StarRatingComponent } from './star-rating/star-rating.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
+import { BestMoviesComponent } from './best-movies/best-movies.component';
+import { WorstMoviesComponent } from './worst-movies/worst-movies.component';
 
 const appRoutes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'search', component: SearchComponent },
-  { path: 'profile', component: ProfileComponent },
-  { path: 'editprofile', component: EditprofileComponent },
-  { path: '', component: FilmsComponent },
-  { path: 'popularFilm', component: FilmsComponent },
-  { path: 'single', component: SinglefilmComponent }
+  { path: 'login', component: LoginComponent},
+  { path: 'register', component: RegisterComponent},
+  { path: 'search', component: SearchComponent},
+  { path: 'profile', component: ProfileComponent},
+  { path: 'editprofile', component: EditprofileComponent},
+  { path: '', component: FilmsComponent},
+  { path: 'popularFilm', component: FilmsComponent},
+  { path: 'single', component: SinglefilmComponent},
+  { path: 'best', component: BestMoviesComponent},
+  { path: 'worst', component: WorstMoviesComponent}
 ]
 
 @NgModule({
@@ -47,7 +51,9 @@ const appRoutes: Routes = [
     ReviewComponent,
     SinglefilmComponent,
     StarRatingComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    BestMoviesComponent,
+    WorstMoviesComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),

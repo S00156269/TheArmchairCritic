@@ -1,0 +1,24 @@
+.PosterDiv {
+    color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 150%;
+  }
+
+#container{
+    display: grid;
+    grid-template-columns: 100px 100px 100px 100px;
+    grid-gap: 110px ;
+    background-color: #fff;
+    color: #444;
+}
+
+.col-sm-1{
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.Poster{
+    height: 300px;
+    width: 200px;
+}
