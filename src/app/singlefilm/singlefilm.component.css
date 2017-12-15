@@ -1,0 +1,53 @@
+img {
+    max-width: 250px;
+}
+
+#details {
+    display: block;
+}
+#reviewButton{
+    margin: 20px;
+}
+#movie-content{
+    margin: 3%;
+}
+.container {
+    overflow: auto;
+}
+
+.movie-thumb {
+    float: left;
+}
+.movie-thumb img {
+    display: block;
+    padding: 5px;
+}
+
+.movie-content{
+    display: inline;
+    padding:10px;
+}
+
+.reviews{
+    padding-top: 10%;
+    margin: 3%;
+    display: block;
+}
+/*https://css-tricks.com/snippets/css/media-queries-for-standard-devices/ 
+*https://css-tricks.com/logic-in-media-queries/
+*/
+/* Portrait */
+@media only screen 
+  and (max-width: 400px)  {
+    .movie-thumb {
+        float: none !important;
+    }
+    .movie-thumb img {
+        padding: 5px !important;
+        text-align: center !important;
+    }
+    .movie-content{
+        display: block !important;
+        padding-top: 10% !important;
+    }
+}

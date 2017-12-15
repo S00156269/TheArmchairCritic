@@ -1,35 +1,37 @@
 <div class='container'>
   <h2>Profile</h2>
   <form #form="ngForm">
-    <div id='Name' class='ProfileInfo'>
-      <label for="inputName">Name: </label>
-      <p>{{currentReviewer.Name}}</p>
-    </div>
+    <mat-card>
+      <mat-card-title>Name:</mat-card-title>
+      <mat-card-content>{{currentReviewer.Name}}</mat-card-content>
+    </mat-card>
+    <mat-card>
+      <mat-card-title>Bio:</mat-card-title>
+      <mat-card-content>{{currentReviewer.Bio}}</mat-card-content>
+    </mat-card>
+    <mat-card>
+      <mat-card-title>Favourite Genres:</mat-card-title>
+      <mat-list role="list">
+        <mat-list-item role="listitem" *ngFor="let genre of currentReviewer.FaveGenres">{{genre}}</mat-list-item>
+      </mat-list>
+    </mat-card>
+    <mat-card>
+      <mat-card-title>Favourite Movies:</mat-card-title>
+      <mat-list role="list">
+        <mat-list-item role="listitem" *ngFor="let movie of currentReviewer.FaveMovies">{{movie}}</mat-list-item>
+      </mat-list>
+    </mat-card>
+    <mat-card>
+      <mat-card-title>Reviews:</mat-card-title>
+      <mat-list role="list">
+        <mat-list-item role="listitem" *ngFor="let review of currentReviewer.Reviews">
+          <span matLine>{{review.MovieName}}</span>
+          <span matLine>{{review.AuthorName}}</span>
+          <span matLine>{{review.Content}}</span>
+          <span matLine>{{review.Score}}</span>
+        </mat-list-item>
+      </mat-list>
+    </mat-card>
 
-    <div id='Bio' class='ProfileInfo'>
-      <label for="inputBio">Bio: </label>
-      <p name="inputBio">{{currentReviewer.Bio}}</p>
-    </div>
-
-    <div id='FavGenre' class='ProfileInfo'>
-      <p>Favourite Genre: </p>
-      <div id='GenreBox'>
-        <div *ngFor="let genre of currentReviewer.FaveGenres">
-          {{genre}}
-        </div>
-      </div>
-    </div>
-
-    <div id='FavMovies' class='ProfileInfo'>
-      <p>Favourite Movies: </p>
-      <div *ngFor="let movie of currentReviewer.FaveMovies">
-        <h3>{{movie}}</h3>
-      </div>
-    </div>
-
-    <div *ngFor="let review of currentReviewer.Reviews">
-      {{review.MovieName}} {{review.AuthorName}} {{review.Content}} {{review.Score}}
-    </div>
-
-    <button type="submit" (click)="editProfile()">Edit</button>
+    <button mat-raised-button type="submit" (click)="editProfile()">Edit</button>
   </form>

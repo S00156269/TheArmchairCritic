@@ -96,13 +96,13 @@ export class EditprofileComponent implements OnInit {
     }
   }
 
-
   createUserProfile(name, bio) {
     this.currentReviewer.Name = name;
     this.currentReviewer.Bio = bio;
     this.currentReviewer.FaveMovies = this.currentReviewer.FaveMovies;
     console.log(this.currentReviewer);
     this.data.createUser(this.formatPost(this.currentReviewer)); //sends it off to the service
+    this.populateFields();
     this.router.navigate(['profile']);
   }
 
@@ -112,10 +112,9 @@ export class EditprofileComponent implements OnInit {
       "Bio": user.Bio,
       "FaveGenres": user.FaveGenres,
       "FaveMovies": user.FaveMovies,
-      "reviews": user.Reviews
+      "Reviews": user.Reviews
     }
   }
-
 
   addFaveFilm(title) {
     if (!this.currentReviewer.FaveMovies.includes(title)) {
@@ -130,7 +129,6 @@ export class EditprofileComponent implements OnInit {
 
   deleteReview(review) {
     this.currentReviewer.Reviews.splice(this.currentReviewer.Reviews.indexOf(review), 1)
-
     console.log(this.currentReviewer);
   }
 
