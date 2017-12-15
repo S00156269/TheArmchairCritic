@@ -30,6 +30,8 @@ export class DataServiceService {
     getUser(uid): Observable<any> {
         return this.http.get('https://armchaircritic-c8e75.firebaseio.com/users/' + uid + ".json");
     }
+    //I create and delete reviews by patching them - however, it doesn't work correctly.
+    //it'll delete the review for the user, but not for the film.
     createReview(data, uid, filmID) {
         this.http.patch('https://armchaircritic-c8e75.firebaseio.com/users/' + uid + ".json", data).subscribe(res => { console.log(res) });
         this.http.patch('https://armchaircritic-c8e75.firebaseio.com/films/' + filmID + ".json", data).subscribe(res => { console.log(res) });
