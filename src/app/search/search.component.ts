@@ -19,7 +19,6 @@ export class SearchComponent implements OnInit {
   filteredShows: any[];
   posterURL: string;
 
-  
   // Heres the poster method again
   getPosterUrl(value)
   {    

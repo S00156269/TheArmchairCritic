@@ -1,6 +1,10 @@
-<div id="container">
-  <div class = "PosterDiv" *ngFor="let bestshows of searchedShows">
-    <!-- put in a href -->
-    <a><img class='Poster' id="{{bestshows.original_title}}" (click)="GoToMovie(bestshows.id)" [src]= "getPosterUrl(bestshows.poster_path)"></a>
-  </div>
+<h2>The Best of the Best!</h2>
+<div class="container">
+  <mat-grid-list cols="4" rowHeight="1:2" class="nopadding">
+    <mat-grid-tile *ngFor="let show of shows">
+        <img class='Poster' id="{{show.original_title}}" (click)="GoToMovie(show.id)" [src]="getUrl(show.poster_path)">
+    </mat-grid-tile>
+  </mat-grid-list>
+
+  <!-- End of containter -->
 </div>
