@@ -19,9 +19,8 @@ import { Review } from '../review';
 })
 
 export class EditprofileComponent implements OnInit {
-  /*
-   * Tried displaying the data on the page, but it didn't like that at all.
-   * It does update the data on the backend.
+  /**
+   * Updates the user (even if there isn't one)
    */
   form: FormGroup;
   filteredMovies: string[];
@@ -103,7 +102,7 @@ export class EditprofileComponent implements OnInit {
     this.currentReviewer.Bio = bio;
     this.currentReviewer.FaveMovies = this.currentReviewer.FaveMovies;
     console.log(this.currentReviewer);
-    this.data.createUser(this.formatPost(this.currentReviewer));
+    this.data.createUser(this.formatPost(this.currentReviewer)); //sends it off to the service
     this.router.navigate(['profile']);
   }
 
@@ -129,9 +128,9 @@ export class EditprofileComponent implements OnInit {
     this.currentReviewer.FaveMovies.splice(this.currentReviewer.FaveMovies.indexOf(title), 1);
   }
 
-  deleteReview(review){
+  deleteReview(review) {
     this.currentReviewer.Reviews.splice(this.currentReviewer.Reviews.indexOf(review), 1)
-    
+
     console.log(this.currentReviewer);
   }
 
@@ -145,7 +144,7 @@ export class EditprofileComponent implements OnInit {
       console.log(this.currentReviewer.FaveGenres);
     }
   }
-
+  //uses the movie service to show films to the user so they can add them to their profile
   public search(searchTerm) {
     this.shows = [];
     this.filteredShows = [];

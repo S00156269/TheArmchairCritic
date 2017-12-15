@@ -19,7 +19,7 @@ export class RegisterComponent {
   constructor(public authService: AuthService, public afa: AngularFireAuth, public router: Router) {
     this.invalid = false;
   }
-
+  //just uses angular fire auth methods
   validate() {
     if (this.password == this.confirmpassword) {
       this.invalid = false;

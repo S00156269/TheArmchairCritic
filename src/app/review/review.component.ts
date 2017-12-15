@@ -30,7 +30,7 @@ export class ReviewComponent implements OnInit {
         }
       }
       else {
-        this.route.navigate(['login']);
+        this.route.navigate(['login']); //if they're not logged in, they're directed back to login
       }
     });
   }
@@ -48,7 +48,7 @@ export class ReviewComponent implements OnInit {
     this.review.MovieID = this.movieID;
     this.review.Score = rating;
     this.review.MovieName = this.movieName;
-    this.reviewer.Reviews.push(this.review);
+    this.reviewer.Reviews.push(this.review); //adds the new review to the array, then patches the array
     this.data.createReview(this.formatPost(), this.uid, this.movieID);
 
   }

@@ -45,7 +45,7 @@ export class SinglefilmComponent implements OnInit {
     });
   }
 
-  writeReview(){
+  writeReview() {
     this.review = true;
   }
 

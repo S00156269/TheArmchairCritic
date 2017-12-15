@@ -7,6 +7,7 @@ import { NotificationService } from '../shared/notification.service';
 
 @Injectable()
 export class AuthService {
+  //uses firebase methods and just returns them in a simple way
   user: Observable<firebase.User>;
   error: string;
   constructor(private firebaseAuth: AngularFireAuth) {

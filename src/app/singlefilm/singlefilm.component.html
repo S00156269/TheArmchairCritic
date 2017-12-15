@@ -16,10 +16,7 @@
     </div>
 
     <div *ngFor="let review of reviews">
-        {{review.MovieName}}
-        {{review.AuthorName}}
-        {{review.Content}}
-        {{review.Score}}
+        {{review.MovieName}} {{review.AuthorName}} {{review.Content}} {{review.Score}}
         <button (click)="deleteReview()">Delete Review</button>
     </div>
 
