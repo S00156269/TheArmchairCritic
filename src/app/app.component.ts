@@ -8,7 +8,7 @@ import { AuthService } from './shared/auth.service';
 })
 export class AppComponent {
   title = 'Armchair Critic';
-  constructor(public afa: AuthService){
+  constructor(public afa: AuthService) {
 
   }
   logout() {

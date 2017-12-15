@@ -13,8 +13,8 @@ export class SearchBarComponent implements OnInit {
 
   StartTheSearch(MovieName) {
     console.log(" Clicked on a movie: " + MovieName);
-      this.router.navigate(['/search'], { queryParams: { Title: MovieName } });
-    }
+    this.router.navigate(['/search'], { queryParams: { Title: MovieName } });
+  }
 
   ngOnInit() {
   }

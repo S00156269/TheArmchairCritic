@@ -1,5 +1,4 @@
-export interface IShows
-{
+export interface IShows {
     id: number;
     original_title: string;
     vote_average: number;

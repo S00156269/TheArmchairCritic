@@ -19,11 +19,11 @@ export class imdbService {
   }
 
   // How do I pass the movie title?
-  searchMDBMovie(value) : Observable<any>{
+  searchMDBMovie(value): Observable<any> {
     console.log("SC2!!!! " + value)
     return this._http.get<any>(this._iMDBURL + 'search/movie?api_key=b1486a6362ec4507649074230d7aa50b&language=en-US&query=' + value + '&page=1&include_adult=false')
-    .do(data => console.log('All: ' + JSON.stringify(data)))
-    .catch(this.handleError);
+      .do(data => console.log('All: ' + JSON.stringify(data)))
+      .catch(this.handleError);
   }
 
   getOneMovie(value): Observable<any> {

@@ -11,7 +11,7 @@
     <ul class="SidebarList">
 
       <li>
-        <a class="button js-button" [routerLink]= "['/popularFilm']">Popular Films</a>
+        <a class="button js-button" [routerLink]="['/popularFilm']">Popular Films</a>
       </li>
       <li>
         <a class="button js-button" [routerLink]="['/profile']" *ngIf="(afa.user | async)">Profile</a>
@@ -26,6 +26,6 @@
   </div>
 
   <div id="MainBody">
-      <router-outlet></router-outlet>
-    </div>
+    <router-outlet></router-outlet>
+  </div>
 </div>
