@@ -1,41 +1,36 @@
 <div class='container'>
   <h2>Profile</h2>
   <form #form="ngForm">
-    <div id='Name' class='ProfileInfo'>
-      <label for="inputName">Name: </label>
-      <input name="inputName" [placeholder]="getName()" #name>
-    </div>
-
-    <div id='Bio' class='ProfileInfo'>
-      <label for="inputBio">Bio: </label>
-      <textarea name="inputBio" cols="50" rows="10" [placeholder]="getBio()" #bio></textarea>
-    </div>
-
-    <div id='FavGenre' class='ProfileInfo'>
-      <p>Favourite Genre: </p>
-      <div id='GenreBox'>
-        <div *ngFor="let genre of availableGenres">
-          <input type="checkbox" name="genre" [value]="genre" (change)="getGenres(genre)" [checked]="checkGenres(genre)">{{genre}}
-        </div>
+    <mat-form-field>
+      <div>
+        <input id="input" matInput name="inputName" [value]="getName()" #name>
       </div>
-    </div>
-
-    <div id='FavMovies' class='ProfileInfo'>
-      <p>Favourite Movies: </p>
-      <div *ngFor="let movie of currentReviewer.FaveMovies">
-        <h3>{{movie}}</h3>
-        <button (click)="removeFaveMovie(movie)">Remove {{movie}}</button>
+      <div>
+        <textarea matInput name="inputBio" [value]="getBio()" #bio></textarea>
       </div>
-      <input #searchTerm type="text" (input)="search(searchTerm.value)" placeholder="search movies..." class="input">
-      <div *ngFor="let show of shows">
-        <h4 (click)="addFaveFilm(show.original_title)">{{show.original_title}}</h4>
+
+      <label for="genre">Genres:</label>
+      <div *ngFor="let genre of availableGenres">
+        <mat-checkbox name="genre" [value]="genre" (change)="getGenres(genre)" [checked]="checkGenres(genre)">{{genre}}</mat-checkbox>
       </div>
-    </div>
+      <mat-list *ngFor="let movie of currentReviewer.FaveMovies">
+        <mat-list-item>{{movie}}</mat-list-item>
+        <button mat-raised-button>Delete {{movie}}</button>
+      </mat-list>
+      <input matInput #searchTerm type="text" (input)="search(searchTerm.value)" placeholder="Search movies..." class="input">
+      <mat-list *ngFor="let show of shows">
+        <mat-list-item (click)="addFaveFilm(show.original_title)">{{show.original_title}}</mat-list-item>
+      </mat-list>
+      <mat-list>
+        <mat-list-item role="listitem" *ngFor="let review of currentReviewer.Reviews">
+          <span matLine>{{review.MovieName}}</span>
+          <span matLine>{{review.AuthorName}}</span>
+          <span matLine>{{review.Content}}</span>
+          <span matLine>{{review.Score}}</span>
+          <button mat-raised-button (click)="deleteReview()">Delete Review</button>
+        </mat-list-item>
+      </mat-list>
+      <button mat-raised-button type="submit" (click)="createUserProfile(name.value, bio.value)">Save</button>
+    </mat-form-field>
 
-    <div *ngFor="let review of currentReviewer.Reviews">
-      {{review.MovieName}} {{review.AuthorName}} {{review.Content}} {{review.Score}}
-      <button (click)="deleteReview()">Delete Review</button>
-    </div>
-
-    <button type="submit" (click)="createUserProfile(name.value, bio.value)">Save</button>
   </form>
