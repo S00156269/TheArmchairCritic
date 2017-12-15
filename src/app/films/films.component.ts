@@ -12,22 +12,35 @@ import { Router } from '@angular/router';
 export class FilmsComponent implements OnInit {
   errorMessage: any;
 
-  constructor(private _iMDBService: imdbService, private router: Router) { }
-
+  // Using the services from the share folder
+  // Have to add router function to send across information from pages
+  constructor(private _iMDBService: imdbService, private router: Router) {}
+  
+  // Tried to use the the Ishows class however this was not allowing the poster to come through
+  // Decided to use any for the shows and a string for the poster URL
   shows: any[];
   posterURL: string;
-  // coming back as an oject insteadof an array
-  // Take it in as an any and try to adapt the Ishows interface on it
-
-  getUrl(value) {
+  
+  // The poster is displayed by adding the title to the end of the string show below
+  // this is implemented whereever a posteris shown
+  getUrl(value)
+  {    
     return "https://image.tmdb.org/t/p/w1280" + value;
   }
 
+  // When a poster is clicked I want take the single movie id bring it to the single route
+  // and then with that ID, find the movie and re display it
   GoToMovie(id) {
+    // Had to log so that I knew where the issue was [on the page or single route]
     console.log(" Clicked on a movie: " + id);
-    this.router.navigate(['/single'], { queryParams: { id: id } });
-  }
+    //This is where we navigate to the single route, you will notice the id appears with the url
+    // this id is then taken within the single route and searched for
+      this.router.navigate(['/single'], { queryParams: { id: id } });
+    }
 
+
+    // This is done immediatly when the page is initialised
+    // The method will fill the shows with 20 popular movies
   public ngOnInit(): void {
     this._iMDBService.getiMDB().subscribe(shows => {
       this.shows = shows.results
