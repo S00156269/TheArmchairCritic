@@ -21,7 +21,6 @@ import { EditprofileComponent } from './editprofile/editprofile.component';
 import { DataServiceService } from './shared/data-service.service';
 import { ReviewComponent } from './review/review.component';
 import { SinglefilmComponent } from './singlefilm/singlefilm.component';
-import { StarRatingComponent } from './star-rating/star-rating.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { BestMoviesComponent } from './best-movies/best-movies.component';
 import { WorstMoviesComponent } from './worst-movies/worst-movies.component';
@@ -88,7 +87,6 @@ const appRoutes: Routes = [
     EditprofileComponent,
     ReviewComponent,
     SinglefilmComponent,
-    StarRatingComponent,
     SearchBarComponent,
     BestMoviesComponent,
     WorstMoviesComponent
