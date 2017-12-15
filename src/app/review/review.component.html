@@ -1,9 +1,13 @@
 <div class="container">
   <form #form="ngForm">
-    <h1>Write your review.</h1>
-    <textarea #content></textarea>
-    <label for="rating">Rating:</label>
-    <input type="number" #rating>
-    <button (click)="createReview(content.value, rating.value)">Create your review.</button>
+    <mat-form-field>
+
+      <h1>Write your review.</h1>
+      <textarea matInput #content></textarea>
+      <label for="rating">Rating:</label>
+      <input matInput type="number" #rating>
+      <button mat-raised-button (click)="createReview(content.value, rating.value)">Create your review.</button>
+    </mat-form-field>
+
   </form>
 </div>
